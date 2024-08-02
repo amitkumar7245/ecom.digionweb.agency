@@ -12,13 +12,13 @@
         rel="stylesheet" />
     <link href="{{ asset('adminbackend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
     <!-- loader-->
-    <link href="{{ asset('adminbackend/assets/css/pace.min.css') }}" rel="stylesheet" />
-    <script src="{{ asset('adminbackend/assets/js/pace.min.js') }}"></script>
+    {{-- <link href="{{ asset('adminbackend/assets/css/pace.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('adminbackend/assets/js/pace.min.js') }}"></script> --}}
     <!-- Bootstrap CSS -->
     <link href="{{ asset('adminbackend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('adminbackend/assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('adminbackend/assets/css/icons.css') }}" rel="stylesheet">
-    <title> -Login</title>
+    <title>Ecommerce Portal | Login</title>
 </head>
 <body class="bg-login">
     <!--wrapper-->
@@ -36,12 +36,8 @@
                                 <div class="border p-4 rounded">
                                     <div class="text-center">
                                         <h3 class="">Sign in</h3>
-
                                     </div>
-
-                                    <div class="login-separater text-center mb-4"> <span>OR SIGN IN WITH EMAIL</span>
-                                        <hr />
-                                    </div>
+                                    <hr/>
                                     @include('_message')
                                     <div class="form-body">
                                         <form class="row g-3" method="POST" action="{{ route('auth.login') }}">
@@ -71,7 +67,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6 text-end"> <a
-                                                    href="authentication-forgot-password.html">Forgot Password ?</a>
+                                                    href="{{ route('auth.forgot') }}">Forgot Password ?</a>
                                             </div>
                                             <div class="col-12">
                                                 <div class="d-grid">
