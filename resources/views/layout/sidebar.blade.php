@@ -74,6 +74,15 @@
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
+
+        <li>
+            <a class="nav-link menu-link {{ ($route ==  'vendor.profile')? 'active':  '' }}" href="{{ route('vendor.profile') }}">
+                <div class="parent-icon"><i class="bx bx-user"></i>
+                </div>
+                <div class="menu-title">Profile</div>
+            </a>
+        </li>
+
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
