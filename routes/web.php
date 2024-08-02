@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
-
-
-
 
 Route::get('/login',[AuthController::class, 'Login'])->name('login');
 Route::post('/auth/login',[AuthController::class, 'AuthLogin'])->name('auth.login');
@@ -39,6 +34,11 @@ Route::post('reset/{token}',[AuthController::class,'PostReset'])->name('reset');
 Route::group(['middleware' => 'admin'], function(){
 
     Route::get('/admin/dashboard',[DashboardController::class,'Dashboard'])->name('admin.dashboard');
+
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/admin/profile', 'AdminProfile')->name('admin.profile');
+        Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
+    });
 
 }); //Group Admin end Method 
 
